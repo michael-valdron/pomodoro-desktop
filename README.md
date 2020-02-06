@@ -22,3 +22,6 @@ Currently tested on:
 ### Authors
 - [Andrei Stoica](https://andreistoica.ca)
 
+### Contributors
+- [Michael Valdron](https://michaelvaldron.ca)
+
