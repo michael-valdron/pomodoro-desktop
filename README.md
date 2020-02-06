@@ -7,6 +7,7 @@ Theoreticaly this should work on all platforms. Although currently it only uses
 Currently tested on:
 - Ubuntu MATE 18.04
 - Arch Linux
+- Windows 10
 
 ### TODO
 - [ ] package for pip
