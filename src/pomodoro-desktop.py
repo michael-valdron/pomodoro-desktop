@@ -6,11 +6,17 @@ from time import sleep
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from pynotifier import Notification
+import platform
 
 app = QApplication([])
 app.setQuitOnLastWindowClosed(False)
 
-config_folder = path.join(path.join(environ['HOME'], ".config/pomo/"))
+if platform.system() == 'Windows':
+    home_dir = environ['USERPROFILE']
+else:
+    home_dir = environ['HOME']
+
+config_folder = path.join(path.join(home_dir, ".config/pomo/"))
 config_file = path.join(config_folder, "pomo.ini")
 config = configparser.ConfigParser(strict=False)
 if not path.exists(config_file):

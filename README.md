@@ -9,9 +9,9 @@ Currently tested on:
 - Arch Linux
 
 ### TODO
-- package for pip
-- add desktop entry 
-- add Windows compatablity
+- [ ] package for pip
+- [ ] add desktop entry 
+- [x] add Windows compatablity 
 
 ### Depenancies
 - [python3](https://docs.python.org/3/)
