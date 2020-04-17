@@ -5,15 +5,16 @@ from os import environ, path, makedirs
 from time import sleep
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from pynotifier import Notification
 import platform
 
 app = QApplication([])
 app.setQuitOnLastWindowClosed(False)
 
 if platform.system() == 'Windows':
+    import balloontip as notifier # Windows notifier
     home_dir = environ['USERPROFILE']
 else:
+    import pynotifier as notifier # Linux notifier
     home_dir = environ['HOME']
 
 config_folder = path.join(path.join(home_dir, ".config/pomo/"))
@@ -45,10 +46,14 @@ counter = 0
 started = False
 
 def notify(msg, duration=20, title="Pomodoro"):
-        Notification(
+    if platform.system() != 'Windows':
+        notifier.Notification(
                 title=title,
                 description=msg,
                 duration=duration).send()
+    else:
+        notifier.balloon_tip(title=title,
+            msg=msg)
 
 def end_pomo():
     global started, counter
